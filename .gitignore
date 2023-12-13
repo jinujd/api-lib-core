@@ -3,9 +3,7 @@ node_modules/
 
 # Ignore build and configuration files
 dist/
-*.log
-*.json
-*.lock
+*.log 
 
 # Ignore coverage reports
 coverage/
