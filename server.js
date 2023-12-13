@@ -1,4 +1,6 @@
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0; //don't validate ssl
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
 const express = require('express'); 
 // var requestUuid = require('express-request-id')();
 import requestUuid from 'express-request-id';
@@ -541,4 +543,4 @@ connectToMongoDb: function(dbConfig, callback) {
   } 
 };
 logApiInfo(app);
-module.exports = Server;
+export default Server 

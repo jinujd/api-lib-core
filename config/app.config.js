@@ -1,3 +1,5 @@
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
  const commonHelper = require(`./common.config`);
  commonHelper.reWriteEnvVars();
  
@@ -35,8 +37,9 @@ var commonConfiguration =  {
 var qaConfig = commonConfiguration;
 var devConfig = commonConfiguration;
 var localConfig = commonConfiguration; 
-module.exports = {   
+const obj = {   
   qa:qaConfig,  
   development: devConfig,
   local: localConfig
 }
+export default obj

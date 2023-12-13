@@ -1,3 +1,5 @@
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
 const stringify = require('json-stringify-safe');
 var multer = require('multer'); 
 const _ = require('lodash');
@@ -8,7 +10,7 @@ const fs = require("fs");
 let failedModels = [];
 
 const callbackPathMapping = {};
-module.exports = function(name,app,config,moduleName) {
+const fn = function(name,app,config,moduleName) {
     var that = this; 
     this.loadConfig = function(name, cb) {
         var results = null;
@@ -483,3 +485,4 @@ module.exports = function(name,app,config,moduleName) {
         } 
     }
 }
+export default fn

@@ -1,3 +1,5 @@
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
 const commonConfigFns = require(`./common.config`);
 commonConfigFns.reWriteEnvVars(); 
 
@@ -24,7 +26,7 @@ let dbConfig = {
 
 };
 console.log(`DB config identified is `, dbConfig)
-module.exports = {
+const dbCfgs = {
   local: {
     sql: dbConfig 
   },
@@ -39,3 +41,4 @@ module.exports = {
   }
  
 }
+export default dbCfgs

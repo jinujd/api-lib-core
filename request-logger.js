@@ -1,4 +1,4 @@
-module.exports = (app) => {
+const fn = (app) => {
     
     // Middleware to log request and response information
     app.use((req, res, next) => {
@@ -39,3 +39,4 @@ module.exports = (app) => {
         next();
     });
 }
+export default fn
