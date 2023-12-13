@@ -427,7 +427,7 @@ connectToMongoDb: function(dbConfig, callback) {
       } 
       var pathToRequire = `./app/controllers/${controllerFileName}`;
       if(CURRENT_MODULE) {
-        var pathToRequire = `./app/modules/${CURRENT_MODULE}/controllers/${controllerFileName}`;
+        var pathToRequire = `${BASE_PATH}/app/modules/${CURRENT_MODULE}/controllers/${controllerFileName}`;
       }
       //console.log("Loading path "+pathToRequire);
       var controller = require(pathToRequire);
@@ -478,7 +478,7 @@ connectToMongoDb: function(dbConfig, callback) {
         console.log("No routes identified..");
       }
   },
-  start: async function (serviceName, routes, serviceConfig) {
+  start: async function (serviceName, routes, BASE_PATH ,serviceConfig) {
 
     console.log("Starting the app...");
     if(!serviceConfig) {
