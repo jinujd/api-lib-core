@@ -1,6 +1,7 @@
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0; //don't validate ssl
 const express = require('express'); 
-var requestUuid = require('express-request-id')();
+// var requestUuid = require('express-request-id')();
+import requestUuid from 'express-request-id';
 var cors = require('cors');
 const bodyParser = require('body-parser');
 var consoleArguments = require('minimist');
