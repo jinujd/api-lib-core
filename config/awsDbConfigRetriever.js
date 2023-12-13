@@ -1,5 +1,4 @@
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
+
 const AWS = require('aws-sdk');
 let accessKeyId = process.env. AWS_ACCESS_KEY_ID;
 let secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
@@ -24,7 +23,7 @@ AWS.config.update({
     region: region    
 }); // for simplicity. In prod, use loadConfigFromFile, or env variables
 
-const fn =  {
+module.exports =  {
     retrieve: (secretName, cb) => {
         console.log("Retrieving secret...");
         let decodedBinarySecret = null;
@@ -97,5 +96,3 @@ const fn =  {
         }
 
     };
-
-export default fn

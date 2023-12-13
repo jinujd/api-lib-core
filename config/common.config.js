@@ -1,4 +1,4 @@
-const obj = {
+module.exports = {
     reWriteEnvVars: () => {
         const jsonEnvVars = [`COMMON_CONFIG`, `DB_CONFIG`]
         //console.log(`Common config`, process.env.COMMON_CONFIG)
@@ -28,4 +28,3 @@ const obj = {
 
     }
 }
-export default obj
