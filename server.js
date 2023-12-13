@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 var consoleArguments = require('minimist');
 const { Parser } = require('json2csv');
 const logApiInfo = require('./request-logger.js')
+let BASE_PATH = ``
 
 // const formidableMiddleware = require('express-formidable');// for form data, files, and normal json data
 var argv = consoleArguments(process.argv.slice(2));
@@ -478,8 +479,8 @@ connectToMongoDb: function(dbConfig, callback) {
         console.log("No routes identified..");
       }
   },
-  start: async function (serviceName, routes, BASE_PATH ,serviceConfig) {
-
+  start: async function (serviceName, routes ,serviceConfig) {
+    BASE_PATH = serviceConfig.BASE_PATH || `./../../`
     console.log("Starting the app...");
     if(!serviceConfig) {
       serviceConfig = { };
