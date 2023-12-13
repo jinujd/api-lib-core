@@ -1,0 +1,17 @@
+# Ignore development and test files
+__tests__
+*.test.js
+*.spec.js
+
+# Ignore build and configuration files
+node_modules/
+dist/
+coverage/
+
+# Ignore documentation and other non-essential files
+docs/
+*.md
+
+# Ignore files related to version control
+.git/
+.gitignore
