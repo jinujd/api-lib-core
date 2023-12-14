@@ -66,11 +66,12 @@ module.exports = function(name,app,config,moduleName) {
         this.registerRoute('get',path,fn,options);
     };
     this.loadModel =  function(model,settings) {
+        const BASE_PATH = this.options.BASE_PATH
         //console.log("Call received for load model with modelname as "+model);
-        var path  = `../app/models/${model}.model.js`;
+        var path  = `${BASE_PATH}/app/models/${model}.model.js`;
         if(this.moduleName) {
             //console.log("Module name idenfied inside loadModel fn is "+this.moduleName);
-            path = `../app/modules/${this.moduleName}/models/${model}.model.js`;
+            path = `${BASE_PATH}/app/modules/${this.moduleName}/models/${model}.model.js`;
         } else {
             //console.log("No module name idenfied inside loadModel fn");
         }

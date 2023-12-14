@@ -401,6 +401,7 @@ connectToMongoDb: function(dbConfig, callback) {
 },
   methods: { 
     loadController: function (controller, options) {
+      options.BASE_PATH = BASE_PATH
       //console.log("Loading controller "+controller);
       var defaultJWTSecret = "myapp";
       var defaultJWTConfig =  {
