@@ -433,7 +433,7 @@ connectToMongoDb: function(dbConfig, callback) {
       }
       //console.log("Loading path "+pathToRequire);
       var controller = require(pathToRequire);
-    
+      console.log(`Options BASE PATH in server.js is ${options.BASE_PATH}`)
       controller = new controller(controllerBaseObj, options);
       var cName =  controller.name;
       //console.log(JSON.stringify(cName));
