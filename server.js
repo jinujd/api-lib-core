@@ -414,7 +414,7 @@ connectToMongoDb: function(dbConfig, callback) {
       
       var controllerBaseObj = new Controller(controller, app, config,CURRENT_MODULE);
 
-      var cpath = './app/controllers/' + controller + ".controller.js";
+      var cpath = `${BASE_PATH}/app/controllers/` + controller + ".controller.js";
       var pathsToCheck = getLookUpPathForItem("controllers");
        
       var controllerFileName =  controller + ".controller.js";
@@ -426,7 +426,7 @@ connectToMongoDb: function(dbConfig, callback) {
         };
         return ret;
       } 
-      var pathToRequire = `./app/controllers/${controllerFileName}`;
+      var pathToRequire = `${BASE_PATH}/app/controllers/${controllerFileName}`;
       if(CURRENT_MODULE) {
         var pathToRequire = `${BASE_PATH}/app/modules/${CURRENT_MODULE}/controllers/${controllerFileName}`;
       }
@@ -463,9 +463,9 @@ connectToMongoDb: function(dbConfig, callback) {
         var route = null;
         while (i < len) {
           route = Server.routes[i]; 
-          var routeFile = `./app/routes/${route}.routes.js`; 
+          var routeFile = `${BASE_PATH}/app/routes/${route}.routes.js`; 
           if(CURRENT_MODULE) {
-            routeFile = `./app/modules/${CURRENT_MODULE}/routes/${route}.routes.js`;
+            routeFile = `${BASE_PATH}/app/modules/${CURRENT_MODULE}/routes/${route}.routes.js`;
           }
           require(routeFile)(app, Server.methods, options); 
           i++;
@@ -511,7 +511,7 @@ connectToMongoDb: function(dbConfig, callback) {
       loadConfigForEnv(serviceConfig.app,env, (paramsForEnv) => {
           params = paramsForEnv;
           var gatewayConfig = params.gateway?params.gateway:{url:""};
-          gateway = require('./app/components/gateway.component')(gatewayConfig); 
+          gateway = require(`${BASE_PATH}/app/components/gateway.component`)(gatewayConfig); 
           var that = this;  
           const dbSettings = [
             {
