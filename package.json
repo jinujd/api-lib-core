@@ -1,6 +1,6 @@
 {
   "name": "api-lib-core",
-  "version": "1.13.0",
+  "version": "1.13.1",
   "description": "Core library for exposing APIs and microservices ",
   "main": "index.js",
   "scripts": {
