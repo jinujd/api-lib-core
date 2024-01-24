@@ -70,7 +70,7 @@ app.use((req, res, next) => { // csv export
       const fieldsToIgnore = (headers[`x-exclude-fields`] || ``).split(`,`);
       const isFieldsToBePrettified = parseInt(headers[`x-prettify-field-names`] || 1)? true: false;
       const valueMappings = JSON.parse(headers[`x-field-value-mappings`] || `{}`) || {}; 
-      const fieldFlatteningMappings = JSON.parse(headers[`x-field-flattening-mappings`] || {});
+      const fieldFlatteningMappings = JSON.parse(headers[`x-field-flattening-mappings`] || `{}`) || {};
       const fieldNameMappings = JSON.parse(headers[`x-field-name-mappings`] || `{}`) || {}; 
       const mapValues = (item) => { 
         for(let field in item) { 
